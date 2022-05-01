@@ -158,7 +158,7 @@ const Signup = () => {
             
         </FormControl>
 
-        <FormControl id='profileImage' isRequired>
+        <FormControl id='profileImage'>
             <FormLabel>Profile Image</FormLabel>
             <Input type={"file"} p={1.5} accept="image/" onChange={(e) => uploadImage(e.target.files[0])} />
         </FormControl>

@@ -3,14 +3,18 @@ import Home from './pages/Homepage';
 import Chat from './pages/Chatpage';
 import './App.css';
 
+import ChatProvider from './context/ChatProvider';
+
 function App() {
   return (
     <div className="App">
      <Router>
-       <Routes>
-         <Route path='/' element={<Home/>} exact></Route>
-         <Route path='/chats' element={<Chat/>}></Route>
-       </Routes>
+       <ChatProvider>
+          <Routes>
+            <Route path='/' element={<Home/>} exact></Route>
+            <Route path='/chats' element={<Chat/>} exact></Route>
+          </Routes>
+       </ChatProvider>
      </Router>
     </div>
   );

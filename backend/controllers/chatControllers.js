@@ -51,13 +51,17 @@ const fetchChats = asyncHandler(async (req, res) => {
             .populate("users", "-password")
             .populate("groupAdmin", "-password")
             .populate("latestMessage")
+            // .populate({
+            //     path: "latestMessage.sender",
+            //     model: "User",
+            //     select: "name profileImage email"    
+            // })
             .sort({ updatedAt: -1 })
             .then(async (results) => {
                 results = await User.populate(results, {
                     path: "lastestMessage.sender",
                     select: "name profileImage email"
                 })
-
                 res.status(200).send(results);
             })
         
@@ -97,6 +101,10 @@ const createGroupChat = asyncHandler(async (req, res) => {
         res.status(400);
         throw new Error(error.message);
     }
+})
+
+const deleteGroupChat = asyncHandler(async (req, res) => {
+
 })
 
 const renameGroup = asyncHandler(async (req, res) => {
@@ -157,6 +165,7 @@ module.exports = {
     accessChat,
     fetchChats,
     createGroupChat,
+    deleteGroupChat,
     renameGroup,
     addUserToGroup,
     removeUserFromGroup

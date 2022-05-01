@@ -7,8 +7,8 @@ const Login = () => {
 
   const [show, setShow] = useState(false)
 
-  const [email, setEmail] = useState()
-  const [password, setPassword] = useState()
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
 
   const toggleShow = () => setShow(!show)
@@ -102,8 +102,8 @@ const Login = () => {
             w="100%"
             style={{ marginTop: 15 }}
             onClick={() => {
-                setEmail("guest@example.com")
-                setPassword("123456")
+                setEmail("guest@gmail.com")
+                setPassword("hello123")
             }}
         >
             Get guest user credentials
